@@ -11,10 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -80,9 +76,13 @@ WSGI_APPLICATION = 'bigboxtest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "ddn3on7am7ipqm",
+        "HOST":"ec2-3-222-11-129.compute-1.amazonaws.com",
+        "PORT":"5432",
+        "USER":"rzawnfmekwoejr",
+        "PASSWORD":"ccc99429f99491b6f65cdbdd88eac87d6f608ec0b2da8d59830548d9dae707e1",
+    }   
 }
 
 
