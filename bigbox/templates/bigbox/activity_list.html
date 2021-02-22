@@ -1,0 +1,51 @@
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'css/containers.css' %}">
+
+<div class="navbar">
+    <a href="{%url "box-list"%}">
+        <img class="logo" src="{% static "bigbox.png" %}" alt="logo">
+    </a>
+</div>
+
+
+<div class="pagination-container">
+{% if page_obj.has_other_pages %}
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}"><button class="paginator">&laquo;</button></a>
+    {% else %}
+      <button class="paginator-disabled"><span>&laquo;</span></button>
+    {% endif %}
+   
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}"><button class="paginator">&raquo;</button></a>
+    {% else %}
+      <button class="paginator-disabled"><span>&raquo;</span></button>
+    {% endif %}
+{% endif %}
+</div>
+
+<div class="fonts">
+{%for activity in page_obj%}
+    <div class="list-object-container" style="width:233px">
+        <h3>{{activity.name}}</h3>
+        <h6 style="width:100%;text-aling:left">{{activity.category.name}}</h6>
+        <a style="float:left;margin:5%" href="{%url 'activity' box.pk activity.pk%}"><button class="show-more">Show More!</button></a>
+    </div>
+{%endfor%}
+</div>
+
+<div class="pagination-container">
+{% if page_obj.has_other_pages %}
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}"><button class="paginator">&laquo;</button></a>
+    {% else %}
+      <button class="paginator-disabled"><span>&laquo;</span></button>
+    {% endif %}
+   
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}"><button class="paginator">&raquo;</button></a>
+    {% else %}
+      <button class="paginator-disabled"><span>&raquo;</span></button>
+    {% endif %}
+{% endif %}
+</div>

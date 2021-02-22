@@ -1,0 +1,21 @@
+{%load static%}
+
+<link rel="stylesheet" type="text/css" href="{%static 'css/containers.css' %}">
+<div class="navbar">
+    <img class="logo" src="{% static "bigbox.png" %}" alt="logo">
+    <form action="/box/" class="filter" method="get">
+        <input style="width:400;height:35" name="slug" id="input-filter" type="text"/>
+        <input style="width:55;height:35;background-color:#fc5b49;color:white" type="submit"/>
+    </form>
+</div>
+
+<div class="fonts">
+{% for box in object_list %}
+    <div class="list-object-container">
+        <h3>{{box.name}}</h3>
+        <h6 style="width:100%;text-aling:left">{{box.category.name}}</h6>
+        <a style="float:left;margin:5%" href="{%url 'box-detail' box.pk%}"><button class="show-more">Show More!</button></a>
+        <h4 style="float:right;margin-right:10px">${{box.price}}</h4>
+    </div>
+{%endfor%}
+<div>

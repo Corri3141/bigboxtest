@@ -1,0 +1,15 @@
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'css/containers.css' %}">
+
+<div class="navbar">
+    <a href="{%url "box-list"%}">
+        <img class="logo" src="{% static "bigbox.png" %}" alt="logo">
+    </a>
+</div>
+
+<div class="fonts">
+
+<h2 class="pre-header">{{object.name}}</h2>
+
+<h3 class="pre-header"> {{object.category.name}}</h3>
+<h3 class="pre-header"> {{object.description}}<h3>
